@@ -1,0 +1,1 @@
+## Click here to go to [Essential Scala](https://underscore.io/books/essential-scala/)
