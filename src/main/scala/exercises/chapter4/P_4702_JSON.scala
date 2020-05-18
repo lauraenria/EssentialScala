@@ -1,5 +1,5 @@
 package exercises.chapter4
 
-class O_A_Calculator {
+class P_4702_JSON {
 
 }

@@ -1,6 +1,6 @@
 package exercises.chapter4
 
-class A_Cats_and_More_Cats {
+class A_4141_Cats_and_More_Cats {
 /*
   Book: Essential Scala Chapter 4
   Exercise 4.1.4.1 Cats, and More Cats

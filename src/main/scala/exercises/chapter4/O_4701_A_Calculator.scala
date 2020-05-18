@@ -1,5 +1,5 @@
 package exercises.chapter4
 
-class J_Traffic_Lights {
+class O_4701_A_Calculator {
 
 }

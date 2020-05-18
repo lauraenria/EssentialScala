@@ -1,6 +1,6 @@
 package exercises.chapter4
 
-class F_A_Short_Division_Exercise {
+class F_4223_A_Short_Division_Exercise {
   /*
     Book: Essential Scala Chapter 4
     Exercise 4.2.2.3 A Short Division Exercise
