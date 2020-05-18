@@ -1,5 +1,5 @@
 package exercises.chapter4
 
-class P_Music {
+class K_4562_Calculation {
 
 }

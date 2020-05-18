@@ -1,6 +1,6 @@
 package exercises.chapter4;
 
-public class E_The_Color_and_the_Shape {
+public class E_4222_The_Color_and_the_Shape {
 /*
   Book: Essential Scala Chapter 4
   Exercise 4.2.2.2 The Color and the Shape

@@ -1,6 +1,6 @@
 package exercises.chapter4
 
-class C_Shaping_Up_2_Da_Streets {
+class C_4143_Shaping_Up_2_Da_Streets {
   /*
     Book: Essential Scala Chapter 4
     Exercise 4.1.4.3 Shaping Up 2 (Da Streets)

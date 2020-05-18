@@ -1,6 +1,6 @@
 package exercises.chapter4
 
-class B_Shaping_Up_With_Traits {
+class B_4142_Shaping_Up_With_Traits {
 /*
   Book: Essential Scala Chapter 4
   Exercise 4.1.4.2 Shaping Up With Traits
