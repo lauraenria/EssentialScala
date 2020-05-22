@@ -8,12 +8,31 @@ class J_4561_Traffic_Lights_2 {
 */
 }
 
+sealed trait TrafficLight
+
+case object Red extends TrafficLight
+case object Green extends TrafficLight
+case object Yellow extends TrafficLight
+
+object City extends App {
+  def next(trafficLight: TrafficLight): TrafficLight =
+    trafficLight match {
+      case Red => Green
+      case Green => Yellow
+      case Yellow => Red
+    }
+
+  println(next(Red))
+}
+
+
+
 sealed trait Rainbow
 case class Pink() extends Rainbow
-case object Red extends Rainbow
+//case object Red extends Rainbow
 case object Orange extends Rainbow
-case object Yellow extends Rainbow
-case object Green  extends Rainbow
+//case object Yellow extends Rainbow
+case object GreenBlue  extends Rainbow
 case object Blue  extends Rainbow
 case object Indigo  extends Rainbow
 
@@ -30,14 +49,13 @@ case class Pig() extends LivigBeing
 
 
 object Body {
-  def color(living : LivigBeing):Rainbow =
+  def matchColor(living : LivigBeing):Rainbow =
     living match {
-      case Crab() => Red
+//      case Crab() => Red
       case Tiger() => Orange
-      case Frog() => Green
+      case Frog() => GreenBlue
       case Whale() => Blue
       case Birds() => Indigo
       case Pig() => Pink()
-
     }
 }
