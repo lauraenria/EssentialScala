@@ -15,8 +15,16 @@ class L_4563_Email {
 /*
 the methods give the same result: a method
 defined on the classes of interest. We should use whichever is more convenient.
-This normally ends up being pa ern matching on the base trait as it
+This normally ends up being pattern matching on the base trait as it
 requires less code duplication.
+
+
+We can only email signed-in users, and sending an
+email requires a lot of knowledge about SMTP settings, MIME headers, and
+so on.
+
+In computer science, **separation of concerns** (SoC)(eg MVC) is a design principle for separating a computer program
+into distinct sections such that each section addresses a separate concern
  */
 
 
