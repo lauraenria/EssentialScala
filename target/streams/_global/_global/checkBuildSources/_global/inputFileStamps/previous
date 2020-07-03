@@ -1,1 +1,1 @@
-["sbt.Task[scala.collection.Seq[scala.Tuple2[java.nio.file.Path, sbt.nio.FileStamp]]]",{"hashes":[["/home/laura/RPS/EssentialScala/build.sbt","7f0ad792e67922d8aad9b419479e34988ef76dca"]],"lastModifiedTimes":[]}]
+["sbt.Task[scala.collection.Seq[scala.Tuple2[java.nio.file.Path, sbt.nio.FileStamp]]]",{"hashes":[["/home/laura/RPS/EssentialScala/build.sbt","8b1c93b717f69e02225dc59ce7c675dcd0cf78c0"]],"lastModifiedTimes":[]}]
