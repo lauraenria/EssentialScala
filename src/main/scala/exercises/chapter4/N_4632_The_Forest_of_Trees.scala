@@ -21,28 +21,36 @@ class N_4632_The_Forest_of_Trees {
      The element directly above something is called its parent.
      For example, ‘a’ is a child of ‘f’, and ‘f’ is the parent of ‘a’.
      Finally, elements with no children are called leaves.
+
+
+     An algebraic data type is any data that uses the patterns known as a product type, or sum type.
+
+     Sum Type Pattern:
+     sealed trait A
+     final case class B() extends A
+     final case class C() extends A
  */
 }
 
 
-sealed trait Node
-
-sealed trait BinaryTree extends Node {
-  final class Tree(right: Node, left: Node)
-  final class Leaf(leaf:Int)
-}
-
+//sealed trait Tree
+//
+//final case class Node (left: Tree, right: Tree) extends Tree
+//
+//final case class Leaf(leaf:Int)
 
 
-sealed trait Tree  {
-  final class Node(right: Tree, left: Tree)
-  final class Leaf(leaf:Int) extends Tree
-}
+// Product Type case class A(b: B, c: C)
 
-
-
-
-
+//sealed trait Left {
+//}
+//sealed trait Right {
+//}
+//sealed trait Leaf {
+//  def leaf: Int
+//}
+//
+//case class Node (left: Left, right: Right, leaf: Leaf)
 
 
 
