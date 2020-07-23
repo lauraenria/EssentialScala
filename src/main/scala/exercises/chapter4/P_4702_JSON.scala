@@ -46,31 +46,56 @@ class P_4702_JSON {
 
 /*
 
-  JSON ::= Json_String value:String
-        |  Json_Number value:Double
-        |  Json_TrueOrFalse   value:Boolean
-        |  Json  value:Boolean
-        |  Json_Null   value: None
-        |  Json_Object value
-        |  Json_Array  value
+  Json ::= Json_String        value:String
+        |  Json_Number        value:Double
+        |  Json_Boolean       value:Boolean
+        |  Json_Null          value: None
+        |  Json_Object
+        |  Json_Array
+
+        Json_Object ::= ObjectCell key:String value:Json tail: Json_Object | ObjectEnd
+        Json_Array ::= ArrayCell head:Json  tail:Json_Array | ArrayEnd
+
+
+        sealed trait IntList
+        case object End extends Json
+        final case class Pair(head: Int, tail: IntList) extends IntList
  */
 
+object testJson extends App {
+  def print:Unit = {
+    def conversion(string: AnyVal): String ={
+    """String = """ ++ string.toString
+    }
+    this match {
+//      case string : JsString = ???
+      case JsNumber(number:Double) => number.toString()
+    }
+  }
+
+  sealed trait Json
+  final case class JsString(value:String) extends Json
+  final case class JsNumber(number:Double) extends Json
+  final case class JsBoolean(boolean: Boolean) extends Json
+  case object JsNull extends Json
+
+  sealed trait JsonObject extends Json
+
+  final case class ObjectCell(headKey: String, value: Json, tail: JsonObject) extends JsonObject
+  case object ObjectEnd extends JsonObject
 
 
-object test extends App {
-  SeqCell(JsString("a string"), SeqCell(JsNumber(1.0), SeqCell(JsBoolean
-  (true), SeqEnd))).print
+  sealed trait JsonSeq extends Json
+  final case class SeqCell(head: Json, tail: JsonSeq) extends JsonSeq
+  case object SeqEnd extends JsonSeq
+
+
+  SeqCell(JsString("a string"), SeqCell(JsNumber(1.0), SeqCell(JsBoolean(true), SeqEnd))).print
   // res0: String = ["a string", 1.0, true]
-  ObjectCell(
-    "a", SeqCell(JsNumber(1.0), SeqCell(JsNumber(2.0), SeqCell(JsNumber
-    (3.0), SeqEnd))),
-    ObjectCell(
-      "b", SeqCell(JsString("a"), SeqCell(JsString("b"), SeqCell(
-        JsString("c"), SeqEnd))),
-      ObjectCell(
-        "c", ObjectCell("doh", JsBoolean(true),
-          ObjectCell("ray", JsBoolean(false),
-            ObjectCell("me", JsNumber(1.0), ObjectEnd))),
+
+  ObjectCell("a", SeqCell(JsNumber(1.0), SeqCell(JsNumber(2.0), SeqCell(JsNumber(3.0), SeqEnd))),
+    ObjectCell("b", SeqCell(JsString("a"), SeqCell(JsString("b"), SeqCell(JsString("c"), SeqEnd))),
+      ObjectCell("c", ObjectCell("doh", JsBoolean(true),ObjectCell("ray", JsBoolean(false),ObjectCell("me", JsNumber(1.0), ObjectEnd))),
         ObjectEnd
       )
     )
