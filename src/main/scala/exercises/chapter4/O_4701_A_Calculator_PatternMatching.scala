@@ -30,15 +30,15 @@ final case class Number(value: Double) extends Expression
 final case class Division (left: Expression, right: Expression) extends Expression
 final case class SquareRoot(value:Expression) extends Expression
 
-sealed trait Calc
-final case class Success(value:Double) extends Calc
-final case class Failure(message:String) extends Calc
-
-object CalculationTest {
-  assert(Addition(SquareRoot(Number(-1.0)), Number(2.0)).eval == Failure("Square root of negative number"))
-  assert(Addition(SquareRoot(Number(4.0)), Number(2.0)).eval == Success(4.0))
-  assert(Division(Number(4), Number(0)).eval == Failure("Division byzero"))
-}
+//sealed trait Calc
+//final case class Success(value:Double) extends Calc
+//final case class Failure(message:String) extends Calc
+//
+//object CalculationTest extends App {
+//  assert(Addition(SquareRoot(Number(-1.0)), Number(2.0)).eval == Failure("Square root of negative number"))
+//  assert(Addition(SquareRoot(Number(4.0)), Number(2.0)).eval == Success(4.0))
+//  assert(Division(Number(4), Number(0)).eval == Failure("Division byzero"))
+//}
 
 /*
 Questions:

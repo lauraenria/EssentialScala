@@ -1,5 +1,6 @@
 package exercises.chapter4
 
+/*
 class O_4701_A_Calculator_PatternMatching{
   /*
    implement a simple interpreter for programs containing
@@ -80,3 +81,4 @@ final case class Addition(left: Expression, right: Expression) extends Expressio
     }
   }
 }
+*/
