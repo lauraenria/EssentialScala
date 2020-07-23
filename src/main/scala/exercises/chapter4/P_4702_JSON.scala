@@ -63,17 +63,23 @@ class P_4702_JSON {
  */
 
 object testJson extends App {
-  def print:Unit = {
-    def conversion(string: AnyVal): String ={
-    """String = """ ++ string.toString
-    }
-    this match {
-//      case string : JsString = ???
-      case JsNumber(number:Double) => number.toString()
+  sealed trait Json {
+    def format:String = {
+      this match {
+        case JsString(s) => s
+        case JsNumber(n) => n.toString
+        case JsBoolean(b) => b.toString
+        case ObjectCell(k,v,t) => k ++ v.format ++ t.format
+        case SeqCell(h,t) => h.format ++ t.format
+        case ObjectEnd => "}"
+        case SeqEnd => "]"
+      }
     }
   }
 
-  sealed trait Json
+
+
+
   final case class JsString(value:String) extends Json
   final case class JsNumber(number:Double) extends Json
   final case class JsBoolean(boolean: Boolean) extends Json
@@ -81,7 +87,7 @@ object testJson extends App {
 
   sealed trait JsonObject extends Json
 
-  final case class ObjectCell(headKey: String, value: Json, tail: JsonObject) extends JsonObject
+  final case class ObjectCell(key: String, value: Json, tail: JsonObject) extends JsonObject
   case object ObjectEnd extends JsonObject
 
 
@@ -89,9 +95,9 @@ object testJson extends App {
   final case class SeqCell(head: Json, tail: JsonSeq) extends JsonSeq
   case object SeqEnd extends JsonSeq
 
-
-  SeqCell(JsString("a string"), SeqCell(JsNumber(1.0), SeqCell(JsBoolean(true), SeqEnd))).print
-  // res0: String = ["a string", 1.0, true]
+  println(JsString("Alex you are a genius!").format)
+  println(SeqCell(JsString("a string"), SeqCell(JsNumber(1.0), SeqCell(JsBoolean(true), SeqEnd))).format)
+//  // res0: String = ["a string", 1.0, true]
 
   ObjectCell("a", SeqCell(JsNumber(1.0), SeqCell(JsNumber(2.0), SeqCell(JsNumber(3.0), SeqEnd))),
     ObjectCell("b", SeqCell(JsString("a"), SeqCell(JsString("b"), SeqCell(JsString("c"), SeqEnd))),
@@ -99,6 +105,6 @@ object testJson extends App {
         ObjectEnd
       )
     )
-  ).print
+  ).format
   // res1: String = {"a": [1.0, 2.0, 3.0], "b": ["a", "b", "c"], "c": {"doh": true, "ray": false, "me": 1.0}}
 }
