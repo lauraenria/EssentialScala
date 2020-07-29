@@ -64,15 +64,31 @@ class P_4702_JSON {
 
 object testJson extends App {
   sealed trait Json {
-    def format:String = {
+    def print:String = {
       this match {
-        case JsString(s) => s
+        case JsString(s) => s"'${s}'"
         case JsNumber(n) => n.toString
         case JsBoolean(b) => b.toString
-        case ObjectCell(k,v,t) => k ++ v.format ++ t.format
-        case SeqCell(h,t) => h.format ++ t.format
+        case JsNull => s"null"
+        case ObjectCell(k,v,t) => objectCellToJson(ObjectCell(k,v,t))
+        case SeqCell(h,t) => SeqToJson(SeqCell(h,t))
         case ObjectEnd => "}"
         case SeqEnd => "]"
+      }
+    }
+
+    def format(s:String):String = {
+      "String:" ++ s ++ ""
+    }
+
+      def objectCellToJson(obj:ObjectCell):String = {
+      obj match {
+        case ObjectCell(k,v,t) => s"${format(k)},${v.print},${t.print}"
+      }
+    }
+    def SeqToJson(seq:SeqCell):String = {
+      seq match {
+        case SeqCell(h,t) => s"${h.print},${t.print}"
       }
     }
   }
@@ -95,9 +111,9 @@ object testJson extends App {
   final case class SeqCell(head: Json, tail: JsonSeq) extends JsonSeq
   case object SeqEnd extends JsonSeq
 
-  println(JsString("Alex you are a genius!").format)
-  println(SeqCell(JsString("a string"), SeqCell(JsNumber(1.0), SeqCell(JsBoolean(true), SeqEnd))).format)
-//  // res0: String = ["a string", 1.0, true]
+  JsString("Alex you are a genius!").print
+  println(SeqCell(JsString("a string"), SeqCell(JsNumber(1.0), SeqCell(JsBoolean(true), SeqEnd))).print)
+  // res0: String = ["a string", 1.0, true]
 
   ObjectCell("a", SeqCell(JsNumber(1.0), SeqCell(JsNumber(2.0), SeqCell(JsNumber(3.0), SeqEnd))),
     ObjectCell("b", SeqCell(JsString("a"), SeqCell(JsString("b"), SeqCell(JsString("c"), SeqEnd))),
@@ -105,6 +121,6 @@ object testJson extends App {
         ObjectEnd
       )
     )
-  ).format
+  ).print
   // res1: String = {"a": [1.0, 2.0, 3.0], "b": ["a", "b", "c"], "c": {"doh": true, "ray": false, "me": 1.0}}
 }
