@@ -66,12 +66,12 @@ object testJson extends App {
   sealed trait Json {
     def print:String = {
       this match {
-        case JsString(s) => s"'${s}'"
+        case JsString(s) => format(s)
         case JsNumber(n) => n.toString
         case JsBoolean(b) => b.toString
-        case JsNull => s"null"
-        case ObjectCell(k,v,t) => objectCellToJson(ObjectCell(k,v,t))
-        case SeqCell(h,t) => seqToJson(SeqCell(h,t))
+        case JsNull => "null"
+        case ObjectCell(k,v,t) => s"{${objectCellToJson(ObjectCell(k,v,t))}}"
+        case SeqCell(h,t) => s"[${seqToJson(SeqCell(h,t))}]"
         case ObjectEnd => "{}"
         case SeqEnd => "[]"
       }
@@ -79,9 +79,7 @@ object testJson extends App {
 
     def format(s:String):String = {
       val sb = new StringBuilder()
-      sb.append('"')
-      sb.append(s)
-      sb.append('"')
+      sb.append('"').append(s).append('"')
       sb.toString()
     }
 
@@ -122,13 +120,13 @@ object testJson extends App {
   println(SeqCell(JsString("a string"), SeqCell(JsNumber(1.0), SeqCell(JsBoolean(true), SeqEnd))).print)
   // res0: String = ["a string", 1.0, true]
 
-  ObjectCell("a", SeqCell(JsNumber(1.0), SeqCell(JsNumber(2.0), SeqCell(JsNumber(3.0), SeqEnd))),
+  println(ObjectCell("a", SeqCell(JsNumber(1.0), SeqCell(JsNumber(2.0), SeqCell(JsNumber(3.0), SeqEnd))),
     ObjectCell("b", SeqCell(JsString("a"), SeqCell(JsString("b"), SeqCell(JsString("c"), SeqEnd))),
       ObjectCell("c", ObjectCell("doh", JsBoolean(true),ObjectCell("ray", JsBoolean(false),ObjectCell("me", JsNumber(1.0), ObjectEnd))),
         ObjectEnd
       )
     )
-  ).print
+  ).print)
   // res1: String = {"a": [1.0, 2.0, 3.0], "b": ["a", "b", "c"], "c": {"doh": true, "ray": false, "me": 1.0}}
 }
 
