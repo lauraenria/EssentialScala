@@ -60,6 +60,10 @@ class P_4702_JSON {
         sealed trait IntList
         case object End extends Json
         final case class Pair(head: Int, tail: IntList) extends IntList
+
+        A String object is immutable, i.e. a String cannot be changed once created.
+        In situations where you need to perform repeated modifications to a string, we need StringBuilder class.
+        StringBuilder is utilized to append input data to the internal buffer.
  */
 
 object testJson extends App {
