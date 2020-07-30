@@ -71,24 +71,31 @@ object testJson extends App {
         case JsBoolean(b) => b.toString
         case JsNull => s"null"
         case ObjectCell(k,v,t) => objectCellToJson(ObjectCell(k,v,t))
-        case SeqCell(h,t) => SeqToJson(SeqCell(h,t))
-        case ObjectEnd => "}"
-        case SeqEnd => "]"
+        case SeqCell(h,t) => seqToJson(SeqCell(h,t))
+        case ObjectEnd => "{}"
+        case SeqEnd => "[]"
       }
     }
 
     def format(s:String):String = {
-      "String:" ++ s ++ ""
+      val sb = new StringBuilder()
+      sb.append('"')
+      sb.append(s)
+      sb.append('"')
+      sb.toString()
     }
 
       def objectCellToJson(obj:ObjectCell):String = {
       obj match {
-        case ObjectCell(k,v,t) => s"${format(k)},${v.print},${t.print}"
+        case ObjectCell(k,v,t @ ObjectCell(_,_,_) ) => s"${format(k)}: ${v.print},${objectCellToJson(t)}"
+        case ObjectCell(k,v,ObjectEnd) =>s"${format(k)}: ${v.print}"
       }
     }
-    def SeqToJson(seq:SeqCell):String = {
+    def seqToJson(seq:SeqCell):String = {
       seq match {
-        case SeqCell(h,t) => s"${h.print},${t.print}"
+        case SeqCell(h, t @ SeqCell(_, _)) =>
+          s"${h.print}, ${seqToJson(t)}"
+        case SeqCell(h, SeqEnd) => h.print
       }
     }
   }
@@ -124,3 +131,5 @@ object testJson extends App {
   ).print
   // res1: String = {"a": [1.0, 2.0, 3.0], "b": ["a", "b", "c"], "c": {"doh": true, "ray": false, "me": 1.0}}
 }
+
+//  Use Stream builder
