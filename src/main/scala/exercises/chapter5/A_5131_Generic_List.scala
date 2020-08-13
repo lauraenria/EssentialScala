@@ -12,6 +12,9 @@ class A_Generic_List {
    */
 }
 
-sealed trait LinkedList[A]
-final case class Pair[A](head:A,tail: LinkedList[A]) extends LinkedList[A]
-final case class End[A]() extends LinkedList[A]
+/*
+  sealed trait LinkedList[A]
+  final case class Pair[A](head:A,tail: LinkedList[A]) extends LinkedList[A]
+  final case class End[A]() extends LinkedList[A]
+ */
+

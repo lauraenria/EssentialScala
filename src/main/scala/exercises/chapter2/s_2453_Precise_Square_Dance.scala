@@ -18,7 +18,7 @@ object calc2 {
   def cube(y:Int):Int = square(y)*y
 }
 
-object test extends App {
+object test_Precise_Square_Dance extends App {
   println(calc2.square(2))
   println(calc2.square(3.0))
   println(calc2.cube(4))
