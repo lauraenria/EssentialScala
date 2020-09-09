@@ -9,3 +9,15 @@ the cat’s favourite food is chips, and false
 otherwise.
 */
 class B_Cats_on_the_Prowl
+
+object ChipShop {
+  def willServe(cat: Cat): Boolean =
+    if(cat.food == "Chips")
+      true
+    else
+      false
+}
+
+object B_Cats_on_the_Prowl extends App {
+
+}
