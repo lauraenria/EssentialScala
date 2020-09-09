@@ -8,7 +8,7 @@ This method should accept a Cat and return true if
 the cat’s favourite food is chips, and false
 otherwise.
 */
-class B_Cats_on_the_Prowl
+class B_3162_Cats_on_the_Prowl
 
 object ChipShop {
   def willServe(cat: Cat): Boolean =
@@ -18,6 +18,6 @@ object ChipShop {
       false
 }
 
-object B_Cats_on_the_Prowl extends App {
+object B_3162_Cats_on_the_Prowl extends App {
 
 }
