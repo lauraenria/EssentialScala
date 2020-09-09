@@ -76,6 +76,6 @@ object testMusic extends App {
   val articulations = List("Tenuto", "Marcato","Staccato","Legato")
   val instruments = List(("Piano","Guitar","Violin","Drums","Saxophone","Flute","Cello","Clarinet","Trumpet","Harp"))
   def favouriteSong(title:String, artist:String): Unit ={}
-  
+
   favouriteSong("Who We Are","Tristan Prettyman")
 }
