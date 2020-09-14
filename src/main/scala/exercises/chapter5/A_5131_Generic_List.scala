@@ -1,6 +1,6 @@
 package exercises.chapter5
 
-class A_Generic_List {
+class A_5131_Generic_List {
   /*
      Our IntList type was defined as
 
