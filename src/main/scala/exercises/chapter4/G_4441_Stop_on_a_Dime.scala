@@ -1,6 +1,6 @@
-package exercises.chapter4
-
-import OLD.LauraAndJessie.Chapter4.TrafficLight
+//package exercises.chapter4
+//
+//import OLD.LauraAndJessie.Chapter4.TrafficLight
 
 class G_4441_Stop_on_a_Dime {
   /*
@@ -10,11 +10,11 @@ class G_4441_Stop_on_a_Dime {
 
     Is a = Sum Type
     How the words exits in the real word?
-  */
+ */
 }
 
 sealed trait TrafficLight
 
 case object Green extends TrafficLight
 case object Yellow extends TrafficLight
-case object Red  extends TrafficLight
+case object Red extends TrafficLight
