@@ -7,11 +7,11 @@ class K_5463_Folding_Sum {
  */
 }
 
-sealed trait Sum[A, B] {
+sealed trait Sum1[A, B] {
   def fold[C](left: A => C, right: B => C): C = this match {
-    case Left(a)  => left(a)
-    case Right(b) => right(b)
+    case Left1(a)  => left(a)
+    case Right1(b) => right(b)
   }
 }
-final case class Left[A, B](value: A) extends Sum[A, B]
-final case class Right[A, B](value: B) extends Sum[A, B]
+final case class Left1[A, B](value: A) extends Sum1[A, B]
+final case class Right1[A, B](value: B) extends Sum1[A, B]

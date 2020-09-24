@@ -7,19 +7,19 @@ class L_5541_Mapping_Lists {
 
         //a simple method
         scala> def m(x: Int) = 2*x
-    m: (x: Int)Int
+        m: (x: Int)Int
 
-      //a simple function
-      scala> val f = (x: Int) => 2*x
-      f: (Int) => Int = <function1>
+        //a simple function
+        scala> val f = (x: Int) => 2*x
+        f: (Int) => Int = <function1>
 
-      //a method can't be the final value
-      scala> m
-      <console>:6: error: missing arguments for method m in object $iw;
-      follow this method with `_' if you want to treat it as a partially applied function
+        //a method can't be the final value
+        scala> m
+        <console>:6: error: missing arguments for method m in object $iw;
+        follow this method with `_' if you want to treat it as a partially applied function
 
 
-      //a function can be the final value
+        //a function can be the final value
         scala> f
         res11: (Int) => Int = <function1>
 

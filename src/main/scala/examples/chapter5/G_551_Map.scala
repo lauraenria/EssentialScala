@@ -18,18 +18,18 @@ class G_551_Map {
 
     Let’s implement map for LinkedList
 
-    fold (which is just the structural recursion pa ern abstracted)
+    fold (which is just the structural recursion pattern abstracted)
     is the universal iterator for an algebraic data type.
  */
 }
-
+/*
 sealed trait LinkedList[A] {
   def map[B](fn: A => B): LinkedList[B] = this match {
-    case Pair(hd, tl) => {
+    /* case Pair(hd, tl) => {
       val newTail: LinkedList[B] = tl.map(fn)
       newTail
       // Combine newTail and head to create LinkedList[B]
-    }
+    }  */
     case Pair(head, tail) => Pair(fn(head), tail.map(fn))
     case End()            => End[B]()
   }
@@ -37,3 +37,4 @@ sealed trait LinkedList[A] {
 
 case class Pair[A](head: A, tail: LinkedList[A]) extends LinkedList[A]
 case class End[A]() extends LinkedList[A]
+ */

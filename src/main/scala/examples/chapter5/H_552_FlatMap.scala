@@ -38,6 +38,7 @@ final case class Empty[A]() extends Maybe[A]
 
 // it’s a structural recursion
 
+/*
 sealed trait Maybe[A] {
   def flatMap[B](fn: A => Maybe[B]): Maybe[B] = {
     this match {
@@ -49,3 +50,4 @@ sealed trait Maybe[A] {
 
 final case class Full[A](value: A) extends Maybe[A]
 final case class Empty[A]() extends Maybe[A]
+ */

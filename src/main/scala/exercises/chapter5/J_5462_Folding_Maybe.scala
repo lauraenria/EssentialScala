@@ -7,12 +7,12 @@ class J_5462_Folding_Maybe {
  */
 }
 
-sealed trait Maybe[A] {
+sealed trait Maybe1[A] {
   def fold[B](full: A => B, empty: B): B = this match {
-    case Full(value) => full(value)
-    case Empty()     => empty
+    case Full1(value) => full(value)
+    case Empty1()     => empty
   }
 }
 
-final case class Full[A](value: A) extends Maybe[A]
-final case class Empty[A]() extends Maybe[A]
+final case class Full1[A](value: A) extends Maybe1[A]
+final case class Empty1[A]() extends Maybe1[A]
