@@ -21,6 +21,7 @@ class I_553_Functors_and_Monads {
      Imagine we have a number of computations that can fail.
  */
 }
+/*
 sealed trait Maybe[A] {
 
   def flatMap[B](fn: A => Maybe[B]): Maybe[B] = {
@@ -50,3 +51,4 @@ sealed trait Maybe[A] {
 
 final case class Full[A](value: A) extends Maybe[A]
 final case class Empty[A]() extends Maybe[A]
+ */

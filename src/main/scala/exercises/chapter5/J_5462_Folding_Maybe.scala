@@ -6,13 +6,18 @@ class J_5462_Folding_Maybe {
     Implement fold for this type.
  */
 }
-
-sealed trait Maybe1[A] {
+/*
+sealed trait Maybe[A] {
   def fold[B](full: A => B, empty: B): B = this match {
-    case Full1(value) => full(value)
-    case Empty1()     => empty
+    case Full(value) => full(value)
+    case Empty()     => empty
   }
 }
 
-final case class Full1[A](value: A) extends Maybe1[A]
-final case class Empty1[A]() extends Maybe1[A]
+final case class Full[A](value: A) extends Maybe[A]
+final case class Empty[A]() extends Maybe[A]
+
+object J_5462_Folding_Maybe extends App {
+  val example = List(Full(4), Full(5), Empty())
+}
+ */

@@ -6,7 +6,7 @@ class H_5441_Exercise_Maybe_that_Was_a_Mistake {
     Full containing an A , and Empty containing no value.
  */
 }
-
+/*
 trait Maybe[A]
 
 final case class Full[A](value: A) extends Maybe[A]
@@ -18,3 +18,4 @@ object H_5441_Exercise_Maybe_that_Was_a_Mistake_Test {
   val perhaps2: Maybe[Int] = Full(1)
 
 }
+ */
