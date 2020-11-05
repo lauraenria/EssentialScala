@@ -47,5 +47,7 @@ object M_5542_Mapping_Maybe extends App {
   val list2: List[Maybe[Int]] = List(Full(3), Full(2), Full(1))
 
   println(list2.flatMap(x => List(x.map(y => y + 10))))
+
+  println(list1.map[String](x => s"start to count! ${x}..."))
 }
  */

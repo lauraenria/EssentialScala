@@ -35,7 +35,7 @@ def map[C](f: B => C): Sum[A, C]
 def flatMap[C](fn: B => Sum[C]): Sum[C]
  */
 }
-
+/*
 sealed trait Sum[A, B] {
   def fold[C](error: B => C, success: A => C): C =
     this match {
@@ -50,7 +50,7 @@ sealed trait Sum[A, B] {
     }
   }
 
-  def flatMap[C](f: A => Sum[A, C]) =
+  def flatMap[C](f: A => Sum[A, C]): Sum[_ <: A, _ >: B with C] =
     this match {
       case Failure(v) => Failure(v)
       case Success(v) => f(v)
@@ -59,3 +59,4 @@ sealed trait Sum[A, B] {
 
 final case class Success[A, B](value: A) extends Sum[A, B]
 final case class Failure[A, B](value: B) extends Sum[A, B]
+ */

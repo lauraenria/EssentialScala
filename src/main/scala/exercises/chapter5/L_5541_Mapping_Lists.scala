@@ -1,6 +1,6 @@
 package exercises.chapter5
 
-import examples.chapter5.{LinkedList, Pair}
+//import examples.chapter5.{LinkedList, Pair}
 
 class L_5541_Mapping_Lists {
   /*

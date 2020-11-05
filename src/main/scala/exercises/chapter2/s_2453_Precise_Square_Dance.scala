@@ -7,15 +7,15 @@ class Precise_Square_Dance {
   Copy and paste calc from the previous exercise to create a calc2 that is
   generalized to work with Ints as well as Doubles . If you have Java experience,
   this should be fairly straightforward. If not, read the solution below.
-*/
+ */
 }
 
 object calc2 {
-  def square(x:Double):Double = x*x
-  def cube(y:Double):Double = square(y)*y
+  def square(x: Double): Double = x * x
+  def cube(y: Double): Double = square(y) * y
 
-  def square(x:Int):Int = x*x
-  def cube(y:Int):Int = square(y)*y
+  def square(x: Int): Int = x * x
+  def cube(y: Int): Int = square(y) * y
 }
 
 object test_Precise_Square_Dance extends App {
