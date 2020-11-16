@@ -1,6 +1,7 @@
 package exercises.chapter4
 import org.scalatest.FunSuite
 
+/*
 class K_4562_CalculationTest extends FunSuite {
   test("Calculator test") {
     assert(Calculator.+(Success(1), 1) == Success(2))
@@ -8,3 +9,4 @@ class K_4562_CalculationTest extends FunSuite {
     assert(Calculator.+(Failure("Badness"), 1) == Failure("Badness"))
   }
 }
+ */

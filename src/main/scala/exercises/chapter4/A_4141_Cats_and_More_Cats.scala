@@ -12,3 +12,21 @@ class A_4141_Cats_and_More_Cats {
   all the different species as subtypes of Feline.
 */
 }
+
+trait Feline {
+  def color: String
+  def sound: String = this match {
+    case _ :Cat => "Meow"
+    case _ => "Roar"
+  }
+}
+
+case class Cat(color:String, favouritefood:String) extends Feline
+case class Lion(color:String, maneSize:Int) extends Feline
+
+
+
+object Basket extends App {
+  val myCat = Cat("orange", "milk")
+  println(myCat)
+}

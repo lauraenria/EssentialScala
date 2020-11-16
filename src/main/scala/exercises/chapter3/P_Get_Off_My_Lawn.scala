@@ -12,10 +12,10 @@ class P_Get_Off_My_Lawn {
   while any other movie gets a 3.0.
   Implement an object called Dad with a method rate which accepts
   a Film and returns a Double.Use pattern matching.
-  */
+ */
 }
 
-
+/*
 object Dad {
   def rate(film: Film):Double = {
     film match {
@@ -32,3 +32,4 @@ object Films extends App {
   val Eastwood = Film("Dunno", "Eastwood")
   println(Dad.rate(Eastwood))
 }
+ */
