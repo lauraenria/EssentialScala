@@ -7,5 +7,12 @@ class H_4442_Calculator {
     A calculation may succeed (with an Int result)
     or fail (with a String message).
     Implement this.
-  */
+
+    Why did they choose to use a sealed keyword in this exercise?
+    Why sealed trait exists?
+ */
 }
+
+sealed trait Calculation_0
+final case class Success(result: Int) extends Calculation_0
+final case class Failure(reason: String) extends Calculation_0
