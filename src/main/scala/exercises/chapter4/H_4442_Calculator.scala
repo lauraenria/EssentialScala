@@ -13,6 +13,6 @@ class H_4442_Calculator {
  */
 }
 
-sealed trait Calculation_0
-final case class Success(result: Int) extends Calculation_0
-final case class Failure(reason: String) extends Calculation_0
+private sealed trait Calculation
+private final case class Success(result: Int) extends Calculation
+private final case class Failure(reason: String) extends Calculation
