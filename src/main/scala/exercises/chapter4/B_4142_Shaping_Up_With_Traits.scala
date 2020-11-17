@@ -10,24 +10,26 @@ class B_4142_Shaping_Up_With_Traits {
   • area returns the area.
  */
 }
-
-trait Shape {
-  def sides: Int
-  def perimeter: Double
-  def area: Double
+/*
+  trait Shape {
+    def sides: Int
+    def perimeter: Double
+    def area: Double
+  }
+  case class Circle(radius: Double) extends Shape {
+    val sides = 1
+    val perimeter: Double = 2 * math.Pi * radius
+    val area: Double = math.Pi * radius * radius
+  }
+  case class Rectangle(width: Double, height: Double) extends Shape {
+    val sides = 4
+    val perimeter: Double = 2 * width + 2 * height
+    val area = width * height
+  }
+  case class Square(size: Double) extends Shape {
+    val sides = 4
+    val perimeter: Double = 4 * size
+    val area: Double = size * size
+  }
 }
-case class Circle(radius: Double) extends Shape {
-  val sides = 1
-  val perimeter = 2 * math.Pi * radius
-  val area = math.Pi * radius * radius
-}
-case class Rectangle(width: Double, height: Double) extends Shape {
-  val sides = 4
-  val perimeter = 2 * width + 2 * height
-  val area = width * height
-}
-case class Square(size: Double) extends Shape {
-  val sides = 4
-  val perimeter = 4 * size
-  val area = size * size
-}
+ */
