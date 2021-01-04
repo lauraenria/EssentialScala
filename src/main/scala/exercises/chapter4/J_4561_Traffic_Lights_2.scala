@@ -7,7 +7,7 @@ class J_4561_Traffic_Lights_2 {
   the example above).
  */
 }
-
+/*
 sealed trait TrafficLight
 
 case object Red extends TrafficLight
@@ -54,3 +54,4 @@ object Body {
       case Pig()   => Pink()
     }
 }
+ */
