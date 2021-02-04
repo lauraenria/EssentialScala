@@ -1,6 +1,5 @@
 package exercises.scalaTest
 import org.scalatest.flatspec.AnyFlatSpec
-import org.scalatest.Tag
 import org.scalatest.tagobjects.Slow
 
 //the error messages generated for == and === comparisons don't distinguish between actual and expected values.
